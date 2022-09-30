@@ -1,4 +1,3 @@
-/* eslint-disable */
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -6,18 +5,18 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import '../styles/CircularProg.css';
 
-function CircularProgressWithLabel(props) {
+function CircularProgressWithLabel({ value }) {
   return (
     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" size={70} thickness={5} {...props} color="primary" className={"foreground"} />
+      <CircularProgress variant="determinate" size={70} thickness={5} value={60} color="primary" className="foreground" />
       <CircularProgress
         variant="determinate"
         value={100}
-        className={"background"}
+        className="background"
         thickness={5}
         color="secondary"
         size={70}
-    />
+      />
       <Box
         sx={{
           top: 0,
@@ -28,11 +27,10 @@ function CircularProgressWithLabel(props) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          borderColor: 'primary.main'
         }}
       >
         <Typography variant="caption" component="div" color="text.secondary">
-          {`${Math.round(props.value)}%`}
+          {`${Math.round(value)}%`}
         </Typography>
       </Box>
     </Box>
